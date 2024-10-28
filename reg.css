@@ -1,0 +1,77 @@
+@font-face {
+    font-family: "Inter-bold";
+    src: url(font/Inter-Bold.otf);
+}
+@font-face {
+    font-family: "Inter-regular";
+    src: url(font/Inter-Regular.otf);
+}
+body {
+    font-family: "Inter-regular";
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    padding: 20px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #486BF5;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 90%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    font-family: "Inter-regular";
+    width: 94%;
+    padding: 10px;
+    background-color: #486BF5;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0b31c5;
+}
+
+.message {
+    text-align: center;
+    margin-top: 15px;
+}
+.auth {
+    text-align: center;
+    font-size: 12px ;
+    margin: 10px 0;
+}
+a {
+    text-decoration: none;
+    color: #486BF5;
+    font-weight: 800;
+}

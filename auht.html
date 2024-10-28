@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    @font-face {
+    font-family: "Inter-bold";
+    src: url(font/Inter-Bold.otf);
+}
+@font-face {
+    font-family: "Inter-regular";
+    src: url(font/Inter-Regular.otf);
+}
+body {
+    font-family: "Inter-regular";
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+    body {
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #486BF5;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #486BF5;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #486BF5;
+}
+
+.message {
+    text-align: center;
+    margin-top: 15px;
+}
+.reg {
+    margin: 20px 0;
+    font-size: 14px;
+    text-align: center;
+}
+a {
+    text-decoration: none;
+    color: #486BF5;
+}
+</style>
+<body>
+
+<div class="container">
+    <h1>Авторизация</h1>
+    <form id="loginForm" action="profile.html">
+        <div class="form-group">
+            <label for="email">Электронная почта:</label>
+            <input type="email" id="email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" required>
+        </div>
+        <button type="submit">Войти</button>
+        <div class="reg">если вы не зарегитсрированы - <a href="reg.html">зарегисрируйтесь</a></div>
+    </form>
+    <p id="message" class="message"></p>
+</div>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Предотвращаем отправку формы
+
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    // Простейшая валидация
+    if (email === '' || password === '') {
+        displayMessage('Пожалуйста, заполните все поля.', 'error');
+        return;
+    }
+
+    // Здесь можно добавить код для проверки данных на сервере
+
+    // Пример успешной авторизации
+    if (email === 'user@email.ru' && password === '11') {
+        displayMessage('Вы успешно вошли в систему!', 'success');
+
+        // Перенаправление на другую страницу через 2 секунды
+        setTimeout(() => {
+            window.location.href = 'profile.html'; // Замените на нужную вам страницу
+        }, 2000);
+    } else {
+        displayMessage('Неверный адрес электронной почты или пароль.', 'error');
+    }
+
+    // Очищаем форму
+    document.getElementById('loginForm').reset();
+});
+
+function displayMessage(message, type) {
+    const messageElement = document.getElementById('message');
+    messageElement.textContent = message;
+
+    if (type === 'success') {
+        messageElement.style.color = 'green';
+    } else {
+        messageElement.style.color = 'red';
+    }
+}
+
+</script>
+</body>
+</html>
